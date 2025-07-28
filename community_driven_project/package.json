@@ -1,0 +1,198 @@
+{
+  "name": "community-driven-project",
+  "version": "1.0.0",
+  "description": "A community-driven platform where people can give away unwanted items for free to those in need",
+  "private": true,
+  "workspaces": [
+    "services/*",
+    "frontend",
+    "shared"
+  ],
+  "scripts": {
+    "install:all": "npm install && npm run install:services && npm run install:frontend",
+    "install:services": "npm run install:gateway && npm run install:user && npm run install:product && npm run install:order && npm run install:media && npm run install:notification && npm run install:admin && npm run install:sponsor && npm run install:advertiser",
+    "install:gateway": "cd services/api-gateway && npm install",
+    "install:user": "cd services/user-service && npm install",
+    "install:product": "cd services/product-service && npm install",
+    "install:order": "cd services/order-service && npm install",
+    "install:media": "cd services/media-service && npm install",
+    "install:notification": "cd services/notification-service && npm install",
+    "install:admin": "cd services/admin-service && npm install",
+    "install:sponsor": "cd services/sponsor-service && npm install",
+    "install:advertiser": "cd services/advertiser-service && npm install",
+    "install:frontend": "cd frontend && npm install",
+    
+    "dev:all": "concurrently \"npm run dev:gateway\" \"npm run dev:user\" \"npm run dev:product\" \"npm run dev:order\" \"npm run dev:media\" \"npm run dev:notification\" \"npm run dev:admin\" \"npm run dev:sponsor\" \"npm run dev:advertiser\" \"npm run dev:frontend\"",
+    "dev:gateway": "cd services/api-gateway && npm run dev",
+    "dev:user": "cd services/user-service && npm run dev",
+    "dev:product": "cd services/product-service && npm run dev",
+    "dev:order": "cd services/order-service && npm run dev",
+    "dev:media": "cd services/media-service && npm run dev",
+    "dev:notification": "cd services/notification-service && npm run dev",
+    "dev:admin": "cd services/admin-service && npm run dev",
+    "dev:sponsor": "cd services/sponsor-service && npm run dev",
+    "dev:advertiser": "cd services/advertiser-service && npm run dev",
+    "dev:frontend": "cd frontend && npm start",
+    
+    "build:all": "npm run build:services && npm run build:frontend",
+    "build:services": "npm run build:gateway && npm run build:user && npm run build:product && npm run build:order && npm run build:media && npm run build:notification && npm run build:admin && npm run build:sponsor && npm run build:advertiser",
+    "build:gateway": "cd services/api-gateway && npm run build",
+    "build:user": "cd services/user-service && npm run build",
+    "build:product": "cd services/product-service && npm run build",
+    "build:order": "cd services/order-service && npm run build",
+    "build:media": "cd services/media-service && npm run build",
+    "build:notification": "cd services/notification-service && npm run build",
+    "build:admin": "cd services/admin-service && npm run build",
+    "build:sponsor": "cd services/sponsor-service && npm run build",
+    "build:advertiser": "cd services/advertiser-service && npm run build",
+    "build:frontend": "cd frontend && npm run build",
+    
+    "test:all": "npm run test:services && npm run test:frontend",
+    "test:services": "npm run test:gateway && npm run test:user && npm run test:product && npm run test:order && npm run test:media && npm run test:notification && npm run test:admin && npm run test:sponsor && npm run test:advertiser",
+    "test:gateway": "cd services/api-gateway && npm test",
+    "test:user": "cd services/user-service && npm test",
+    "test:product": "cd services/product-service && npm test",
+    "test:order": "cd services/order-service && npm test",
+    "test:media": "cd services/media-service && npm test",
+    "test:notification": "cd services/notification-service && npm test",
+    "test:admin": "cd services/admin-service && npm test",
+    "test:sponsor": "cd services/sponsor-service && npm test",
+    "test:advertiser": "cd services/advertiser-service && npm test",
+    "test:frontend": "cd frontend && npm test",
+    
+    "test:ci:all": "npm run test:ci:services && npm run test:ci:frontend",
+    "test:ci:services": "npm run test:ci:gateway && npm run test:ci:user && npm run test:ci:product && npm run test:ci:order && npm run test:ci:media && npm run test:ci:notification && npm run test:ci:admin && npm run test:ci:sponsor && npm run test:ci:advertiser",
+    "test:ci:gateway": "cd services/api-gateway && npm run test:ci",
+    "test:ci:user": "cd services/user-service && npm run test:ci",
+    "test:ci:product": "cd services/product-service && npm run test:ci",
+    "test:ci:order": "cd services/order-service && npm run test:ci",
+    "test:ci:media": "cd services/media-service && npm run test:ci",
+    "test:ci:notification": "cd services/notification-service && npm run test:ci",
+    "test:ci:admin": "cd services/admin-service && npm run test:ci",
+    "test:ci:sponsor": "cd services/sponsor-service && npm run test:ci",
+    "test:ci:advertiser": "cd services/advertiser-service && npm run test:ci",
+    "test:ci:frontend": "cd frontend && npm run test:ci",
+    
+    "lint:all": "npm run lint:services && npm run lint:frontend",
+    "lint:services": "npm run lint:gateway && npm run lint:user && npm run lint:product && npm run lint:order && npm run lint:media && npm run lint:notification && npm run lint:admin && npm run lint:sponsor && npm run lint:advertiser",
+    "lint:gateway": "cd services/api-gateway && npm run lint",
+    "lint:user": "cd services/user-service && npm run lint",
+    "lint:product": "cd services/product-service && npm run lint",
+    "lint:order": "cd services/order-service && npm run lint",
+    "lint:media": "cd services/media-service && npm run lint",
+    "lint:notification": "cd services/notification-service && npm run lint",
+    "lint:admin": "cd services/admin-service && npm run lint",
+    "lint:sponsor": "cd services/sponsor-service && npm run lint",
+    "lint:advertiser": "cd services/advertiser-service && npm run lint",
+    "lint:frontend": "cd frontend && npm run lint",
+    
+    "lint:fix:all": "npm run lint:fix:services && npm run lint:fix:frontend",
+    "lint:fix:services": "npm run lint:fix:gateway && npm run lint:fix:user && npm run lint:fix:product && npm run lint:fix:order && npm run lint:fix:media && npm run lint:fix:notification && npm run lint:fix:admin && npm run lint:fix:sponsor && npm run lint:fix:advertiser",
+    "lint:fix:gateway": "cd services/api-gateway && npm run lint:fix",
+    "lint:fix:user": "cd services/user-service && npm run lint:fix",
+    "lint:fix:product": "cd services/product-service && npm run lint:fix",
+    "lint:fix:order": "cd services/order-service && npm run lint:fix",
+    "lint:fix:media": "cd services/media-service && npm run lint:fix",
+    "lint:fix:notification": "cd services/notification-service && npm run lint:fix",
+    "lint:fix:admin": "cd services/admin-service && npm run lint:fix",
+    "lint:fix:sponsor": "cd services/sponsor-service && npm run lint:fix",
+    "lint:fix:advertiser": "cd services/advertiser-service && npm run lint:fix",
+    "lint:fix:frontend": "cd frontend && npm run lint:fix",
+    
+    "type-check:all": "npm run type-check:services && npm run type-check:frontend",
+    "type-check:services": "npm run type-check:gateway && npm run type-check:user && npm run type-check:product && npm run type-check:order && npm run type-check:media && npm run type-check:notification && npm run type-check:admin && npm run type-check:sponsor && npm run type-check:advertiser",
+    "type-check:gateway": "cd services/api-gateway && npm run type-check",
+    "type-check:user": "cd services/user-service && npm run type-check",
+    "type-check:product": "cd services/product-service && npm run type-check",
+    "type-check:order": "cd services/order-service && npm run type-check",
+    "type-check:media": "cd services/media-service && npm run type-check",
+    "type-check:notification": "cd services/notification-service && npm run type-check",
+    "type-check:admin": "cd services/admin-service && npm run type-check",
+    "type-check:sponsor": "cd services/sponsor-service && npm run type-check",
+    "type-check:advertiser": "cd services/advertiser-service && npm run type-check",
+    "type-check:frontend": "cd frontend && npm run type-check",
+    
+    "clean:all": "npm run clean:services && npm run clean:frontend",
+    "clean:services": "npm run clean:gateway && npm run clean:user && npm run clean:product && npm run clean:order && npm run clean:media && npm run clean:notification && npm run clean:admin && npm run clean:sponsor && npm run clean:advertiser",
+    "clean:gateway": "cd services/api-gateway && npm run clean",
+    "clean:user": "cd services/user-service && npm run clean",
+    "clean:product": "cd services/product-service && npm run clean",
+    "clean:order": "cd services/order-service && npm run clean",
+    "clean:media": "cd services/media-service && npm run clean",
+    "clean:notification": "cd services/notification-service && npm run clean",
+    "clean:admin": "cd services/admin-service && npm run clean",
+    "clean:sponsor": "cd services/sponsor-service && npm run clean",
+    "clean:advertiser": "cd services/advertiser-service && npm run clean",
+    "clean:frontend": "cd frontend && npm run clean",
+    
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:restart": "docker-compose restart",
+    
+    "setup": "npm run install:all && npm run setup:env",
+    "setup:env": "cp env.example .env && echo 'Please edit .env with your configuration'",
+    
+    "start:all": "npm run start:gateway",
+    "start:gateway": "cd services/api-gateway && npm start",
+    "start:user": "cd services/user-service && npm start",
+    "start:product": "cd services/product-service && npm start",
+    "start:order": "cd services/order-service && npm start",
+    "start:media": "cd services/media-service && npm start",
+    "start:notification": "cd services/notification-service && npm start",
+    "start:admin": "cd services/admin-service && npm start",
+    "start:sponsor": "cd services/sponsor-service && npm start",
+    "start:advertiser": "cd services/advertiser-service && npm start",
+    "start:frontend": "cd frontend && npm start"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/community-driven-project.git"
+  },
+  "keywords": [
+    "community",
+    "e-commerce",
+    "giving",
+    "charity",
+    "social-good",
+    "open-source",
+    "react",
+    "nodejs",
+    "typescript",
+    "microservices",
+    "docker",
+    "kubernetes"
+  ],
+  "author": "Community Contributors",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/your-username/community-driven-project/issues"
+  },
+  "homepage": "https://github.com/your-username/community-driven-project#readme",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ]
+  }
+} 
